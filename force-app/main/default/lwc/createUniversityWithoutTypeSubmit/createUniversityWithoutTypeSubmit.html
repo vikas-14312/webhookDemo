@@ -1,0 +1,190 @@
+<template>
+    <template lwc:if={showSpinner}>
+        <lightning-spinner class="slds-is-fixed" alternative-text="Loading..." variant="brand"></lightning-spinner>
+    </template>
+        <div class="container slds-theme_default">
+            <div>
+                <div lwc:if={showUniversityForm}>
+                    <div>
+                        <h1 class="heading slds-text-heading_large slds-text-align_center slds-theme_shade slds-p-around_medium">Create University</h1>
+                    </div>
+                        <lightning-record-edit-form class="universityForm" object-api-name={universityObject} onsuccess={handleUniversitysuccess}>
+                            <div class="form slds-m-top_medium">
+
+                            <div class="slds-grid slds-wrap slds-p-around_medium slds-m-bottom_medium">
+                                <div class="slds-size_1-of-2 slds-p-horizontal_medium">
+                                    <lightning-input-field field-name={universityName}> </lightning-input-field>
+                                </div>
+                                <div class="slds-size_1-of-2 slds-p-horizontal_medium">
+                                    <lightning-input-field field-name={universityEmail}> </lightning-input-field>
+                                </div>
+                                <div class="slds-size_1-of-2 slds-p-horizontal_medium">
+                                    <lightning-input-field field-name={universityWebsite}> </lightning-input-field>
+                                </div>
+                                <div class="slds-size_1-of-2 slds-p-horizontal_medium">
+                                    <lightning-input-field field-name={universityPhone}> </lightning-input-field>
+                                </div>
+                                <div class="slds-size_1-of-2 slds-p-horizontal_medium">
+                                    <lightning-input-field field-name="Address__City__s"> </lightning-input-field>
+                                </div>
+                                <div class="slds-size_1-of-2 slds-p-horizontal_medium">
+                                    <lightning-input-field field-name="Address__CountryCode__s"> </lightning-input-field>
+                                </div>
+                                <div class="slds-size_1-of-2 slds-p-horizontal_medium">
+                                    <lightning-input-field field-name="Address__GeocodeAccuracy__s"> </lightning-input-field>
+                                </div>
+                                <div class="slds-size_1-of-2 slds-p-horizontal_medium">
+                                    <lightning-input-field field-name="Address__Latitude__s"> </lightning-input-field>
+                                </div>
+                                <div class="slds-size_1-of-2 slds-p-horizontal_medium">
+                                    <lightning-input-field field-name="Address__Longitude__s"> </lightning-input-field>
+                                </div>
+                                <div class="slds-size_1-of-2 slds-p-horizontal_medium">
+                                    <lightning-input-field field-name="Address__PostalCode__s"> </lightning-input-field>
+                                </div>
+                                <div class="slds-size_1-of-2 slds-p-horizontal_medium">
+                                    <lightning-input-field field-name="Address__StateCode__s"> </lightning-input-field>
+                                </div>
+                                <div class="slds-size_1-of-2 slds-p-horizontal_medium">
+                                    <lightning-input-field field-name="Address__Street__s"> </lightning-input-field>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slds-m-top_medium slds-align_absolute-center slds-p-bottom_medium">
+                            <lightning-button variant="brand" label="Save University" onclick={handleUniversitySave}>
+                            </lightning-button>
+                        </div>
+                            
+                        </lightning-record-edit-form>
+                </div>
+
+                <div lwc:if={showCollegeForm}>
+                    <div>
+                        <h1 class="heading slds-text-heading_large slds-text-align_center slds-theme_shade slds-p-around_medium">Create College</h1>
+                    </div>
+                    <lightning-record-edit-form class="collegeForm" object-api-name={collegeObject} onsuccess={handleCollegesuccess} onerror={handleCollegeError}>
+                        <div class="form slds-m-top_medium">
+                            <div class="slds-grid slds-wrap slds-p-around_medium slds-m-bottom_medium">
+                            <div class="slds-size_1-of-2 slds-p-horizontal_medium">
+                                <lightning-input-field field-name={collegeName}> </lightning-input-field>
+                            </div>
+                            <div class="slds-size_1-of-2 slds-p-horizontal_medium">
+                                <lightning-input-field field-name={collegeEmail}> </lightning-input-field>
+                            </div>
+                            <div class="slds-size_1-of-2 slds-p-horizontal_medium">
+                                <lightning-input-field field-name="Full_Name__c"> </lightning-input-field>
+                            </div>
+                            <div class="slds-size_1-of-2 slds-p-horizontal_medium">
+                                <lightning-input-field field-name={collegePhone}> </lightning-input-field>
+                            </div>
+                            <div class="slds-size_1-of-2 slds-p-horizontal_medium">
+                                <lightning-input-field field-name={collegeUniversity} value={universityId} disabled > </lightning-input-field>
+                            </div>
+                            <div class="slds-size_1-of-2 slds-p-horizontal_medium">
+                                <lightning-input-field field-name={collegeUniversityEmail}> </lightning-input-field>
+                            </div>
+                            <div class="slds-size_1-of-1 slds-p-horizontal_medium">
+                                <lightning-input-field field-name={collegeWebsite}> </lightning-input-field>
+                            </div>
+                            <div class="slds-size_1-of-2 slds-p-horizontal_medium">
+                                <lightning-input-field field-name="Address__City__s"> </lightning-input-field>
+                            </div>
+                            <div class="slds-size_1-of-2 slds-p-horizontal_medium">
+                                <lightning-input-field field-name="Address__CountryCode__s"> </lightning-input-field>
+                            </div>
+                            <div class="slds-size_1-of-2 slds-p-horizontal_medium">
+                                <lightning-input-field field-name="Address__GeocodeAccuracy__s"> </lightning-input-field>
+                            </div>
+                            <div class="slds-size_1-of-2 slds-p-horizontal_medium">
+                                <lightning-input-field field-name="Address__Latitude__s"> </lightning-input-field>
+                            </div>
+                            <div class="slds-size_1-of-2 slds-p-horizontal_medium">
+                                <lightning-input-field field-name="Address__Longitude__s"> </lightning-input-field>
+                            </div>
+                            <div class="slds-size_1-of-2 slds-p-horizontal_medium">
+                                <lightning-input-field field-name="Address__PostalCode__s"> </lightning-input-field>
+                            </div>
+                            <div class="slds-size_1-of-2 slds-p-horizontal_medium">
+                                <lightning-input-field field-name="Address__StateCode__s"> </lightning-input-field>
+                            </div>
+                            <div class="slds-size_1-of-2 slds-p-horizontal_medium">
+                                <lightning-input-field field-name="Address__Street__s"> </lightning-input-field>
+                            </div>
+                            </div>
+                        </div>
+
+                        <div class="slds-var-m-top_medium slds-align_absolute-center slds-p-bottom_medium">
+                            <lightning-button variant="brand" label="Save College" onclick={handleCollegeSave}>
+                            </lightning-button>
+                        </div>
+                    </lightning-record-edit-form>
+                </div>
+
+                <div lwc:if={showCourseForm}>
+                    <div>
+                        <h1 class="heading slds-text-heading_large slds-text-align_center slds-theme_shade slds-p-around_medium">Create Course</h1>
+                    </div>
+                    <lightning-record-edit-form class="courseForm" object-api-name={courseObject} onsuccess={handleCoursesuccess}>
+                        <div class="form slds-m-top_medium">
+                        <div class="slds-grid slds-wrap slds-p-around_medium slds-m-bottom_medium">
+                            <div class="slds-size_1-of-2 slds-p-horizontal_medium">
+                                <lightning-input-field field-name={courseName}> </lightning-input-field>
+                            </div>
+                            <div class="slds-size_1-of-2 slds-p-horizontal_medium">
+                                <lightning-input-field field-name={courseCollege} value={collegeId} disabled > </lightning-input-field>
+                            </div>
+                            <div class="slds-size_1-of-2 slds-p-horizontal_medium">
+                                <lightning-input-field field-name={courseCode}> </lightning-input-field>
+                            </div>
+                            <div class="slds-size_1-of-2 slds-p-horizontal_medium">
+                                <lightning-input-field field-name={courseFee}> </lightning-input-field>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slds-var-m-top_medium slds-align_absolute-center slds-p-bottom_medium">
+                        <lightning-button variant="brand" label="Save Course" onclick={handleCourseSave}>
+                        </lightning-button>
+                    </div>
+                    </lightning-record-edit-form>
+                </div>
+                
+                <div lwc:if={showStaffForm}>
+                    <div>
+                        <h1 class="heading slds-text-heading_large slds-text-align_center slds-theme_shade slds-p-around_medium">Create Staff</h1>
+                    </div>
+                    <lightning-record-edit-form class="staffForm" object-api-name={staffObject} onsuccess={handleStaffsuccess}>
+                        <div class="form slds-m-top_medium">
+                        <div class="slds-grid slds-wrap slds-p-around_medium slds-m-bottom_medium">
+                            <div class="slds-size_1-of-2 slds-p-horizontal_medium">
+                                <lightning-input-field field-name={staffName}> </lightning-input-field>
+                            </div>
+                            <div class="slds-size_1-of-2 slds-p-horizontal_medium">
+                                <lightning-input-field field-name={staffFirstName}> </lightning-input-field>
+                            </div>
+                            <div class="slds-size_1-of-2 slds-p-horizontal_medium">
+                                <lightning-input-field field-name={staffLastName}> </lightning-input-field>
+                            </div>
+                            <div class="slds-size_1-of-2 slds-p-horizontal_medium">
+                                <lightning-input-field field-name={staffSalary}> </lightning-input-field>
+                            </div>
+                            <div class="slds-size_1-of-2 slds-p-horizontal_medium">
+                                <lightning-input-field field-name={staffCollege} value={collegeId} disabled > </lightning-input-field>
+                            </div>
+                            <div class="slds-size_1-of-2 slds-p-horizontal_medium">
+                                <lightning-input-field field-name={staffEmail}> </lightning-input-field>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slds-var-m-top_medium slds-align_absolute-center slds-p-bottom_medium">
+                        <lightning-button variant="brand" label="Save Staff" onclick={handleStaffSave}>
+                        </lightning-button>
+                        <lightning-button class="slds-var-m-left_x-small" variant="neutral" label="Reset Form" onclick={handleReset}>
+                        </lightning-button>
+                    </div>
+                    </lightning-record-edit-form>
+                </div>
+            </div>
+        </div>
+</template>
